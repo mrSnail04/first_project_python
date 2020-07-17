@@ -1,7 +1,7 @@
 import random
 shuld_continue= True
 while shuld_continue:
-    player = input('R/S/P').lower()
+    player = input('R/S/P\n').lower()
     if player not in ['r','s','p']:
         print('Incorrect input')
         continue
@@ -11,8 +11,7 @@ while shuld_continue:
     if player==comp:
         print('a draw')
     elif (player,comp) in winning_comb:
-        print('Player wins')
+        print('You won')
     else:
-    
-        print('comp wins')
-    shuld_continue = input('[y/n]')=='y'
+        print('Computer won')
+    shuld_continue = input('[y/n]\n')=='y'
