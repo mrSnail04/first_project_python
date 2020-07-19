@@ -40,3 +40,42 @@ class Car(Vehicle, RadioMixin):
 
 car=Car()
 car.turn_on("FM")
+
+
+
+
+
+
+
+
+
+
+class Person():
+    def __init__(self, damage = 0, health = 100):
+        self.damage =damage
+        self.health = health
+
+    def hit(self, damage):
+        print(f"You lost {damage} HP")
+        self.health -= damage
+
+class Knight(Person):
+    def __init__(self, armor = 0, attack = 10, weapons = None):
+        Person.__init__(self)
+        self.armor = armor
+        self.attack = attack
+        self.weapons = weapons
+    def take_weapons(self, weapons):
+        self.weapons = weapons
+        print(f"You take {self.weapons}")   
+
+me =Knight()
+print(f"Your armor = {me.armor}")
+me.armor=50
+print(f"Your armor now = {me.armor}")
+print(f"Your attack is {me.attack}")
+print(f"Your weapons: {me.weapons}")
+me.take_weapons('Knife')
+print(f"You have {me.weapons}")
+me.hit(52)
+print(f"You health now is {me.health} HP")
