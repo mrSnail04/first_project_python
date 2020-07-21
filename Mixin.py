@@ -36,18 +36,8 @@ class Car(Vehicle, RadioMixin):
     def __init__(self):
         Vehicle.__init__(self, (10,20))
         RadioMixin.__init__(self)
-
-
 car=Car()
 car.turn_on("FM")
-
-
-
-
-
-
-
-
 
 
 class Person():
@@ -79,3 +69,30 @@ me.take_weapons('Knife')
 print(f"You have {me.weapons}")
 me.hit(52)
 print(f"You health now is {me.health} HP")
+
+
+
+class Pizza:
+    order=0
+    def __init__(self, ingredients):
+        self.ingredients = ingredients
+        Pizza.order+=1
+        self.order_number= Pizza.order
+    @classmethod
+    def hawaiian(cls):
+        return cls(['ham', 'pineapple'])
+    @classmethod
+    def meat_festival(cls):
+        return cls(["beef","meatball","bacon"])
+    @classmethod
+    def garden_feast(cls):
+        return cls(["spinach","olives","mushroom"])
+
+p1=Pizza(['apple','fdf','gggg'])
+p2=Pizza.meat_festival()
+p3=Pizza.hawaiian()
+
+print(p1.ingredients)
+print(p1.order_number)
+print(p3.order_number)
+print(Pizza.order)
