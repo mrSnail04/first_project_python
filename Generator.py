@@ -19,3 +19,29 @@ print(seq)
 rand_seq = randoms(1,10,10) #генерировать 10 штуку
 five_take = list(itertools.islice(rand_seq, 5)) #требуется взять 5 значений
 print(five_take)
+
+
+def rando(min,max):
+    while True:
+        yield random.randint(min, max)
+#при помощи next() можно возвращать следующее значение
+rand_seq = rando(1,10)
+n=next(rand_seq)
+print(n)
+rand_seq = rando(1,10)
+n=next(rand_seq)
+print(n)
+rand_seq = rando(1,10)
+n=next(rand_seq)
+print(n)
+rand_seq = rando(1,10)
+n=next(rand_seq)
+print(n)
+
+my_list = [1,2,3,4]
+
+squares = [x**2 for x in my_list]
+print(squares)
+
+squares = (x**2 for x in my_list)
+print(squares) #так же генератор 
