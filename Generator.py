@@ -45,3 +45,75 @@ print(squares)
 
 squares = (x**2 for x in my_list)
 print(squares) #так же генератор 
+
+
+# итераторы
+iterable = [1,2,3]
+
+iterator = iter(iterable)
+print(type(iterator))
+print(next(iterator))
+print(next(iterator))
+print(next(iterator))
+
+import itertools as it
+
+even_numbers = [x for x in range(10) if x % 2 == 0]
+print(even_numbers)
+even_numbers = it.count(0,2)
+print(even_numbers)
+
+#for x in even_numbers:   Будет бесконечый цикл
+#   print(x)
+#Что бы этого избежать используют list
+
+print(list(next(even_numbers) for _ in range(5)))
+
+print(list(zip(it.count(),['a','b','c'])))
+
+def print_iterable(iterable, end = None):
+    for x in iterable:
+        if end:
+            print(x, end = end)
+        else:
+            print(x)
+ones = it.repeat(1,5)
+print_iterable(ones, ' ')
+
+print(  list(map(pow, range(10), it.repeat(2))))
+
+pos_neg_ones = it.cycle([1, -1])
+print(list(next(pos_neg_ones) for _ in range(3)))
+
+letters = it.cycle(['A','B','C'])
+print(list(next(letters) for _ in range(10)))
+
+print(list(it.accumulate([1,2,3,4,5])))
+print(list(it.accumulate(['A','B','C','D'])))
+print(list(it.accumulate([3,1,5,8,2,1,9,4,51,0,-1], max)))
+# идёт сравнение. первое значение просто выводится, а дальше 3:1=3,3:5=5,5:8=8,8:2=8,8:1=8,8:9=9 и т.д
+# Вывод: [3, 3, 5, 8 ,8 ,8 9, 9, 51, 51, 51]
+
+print(list(it.chain('ABC','DEF')))
+
+print(list(it.chain.from_iterable(['ABC','DEF'])))
+#удаляет из списка все True
+print(list(it.dropwhile(lambda x: x<3, [1,2,3,4,5])))
+#удаляет из списка все False
+print(list(it.takewhile(lambda x: x<3, [1,2,3,4,5])))
+#удаляет всё, что True
+print(list(it.filterfalse(lambda x: x%2==0, range(10))))
+
+names = ['Carls','Car','Mamb','Ding','Giri']
+ratings = [2842,2584,5156,2484,7484]
+for name, rating in zip(names, ratings):
+    print(f'{name}:{rating}')
+
+print(list(zip(names,ratings)))
+print(dict(zip(names,ratings)))
+#Cramnic просто выкидывается раз нету rating
+names = ['Carls','Car','Mamb','Ding','Giri','Cramnic']
+ratings = [2842,2584,5156,2484,7484]
+print(dict(zip(names,ratings)))
+#zip_longest позволяет сохранить лишнее значение с None
+print(dict(it.zip_longest(names,ratings)))
