@@ -145,3 +145,20 @@ def group_sorted (iterable, key=None):
 grouped_data = group_sorted(forecast, key=lambda x: x['humidity'])
 for key, grp in grouped_data:
     print('{}:{}'.format(key, list(grp)))
+
+even_numbers = it. count(0,2)
+print([x for x in range(20) if x % 2 == 0])
+
+print(list(it.islice(even_numbers, 2, 10, 2)))
+
+#Все возможные варианты перестановок
+pin = [7,5,2,8]
+pin_lst=list(it.permutations(pin))
+print(pin_lst)
+print(len(pin_lst))
+#генерация колоды карт
+ranks=['6','7','8','9','10','J','Q','K','A']
+suits=['H','D','C','S']
+print(list(it.product(ranks, suits)))
+#возможные комбинации
+print(list(it.combinations('ABCD',2)))
