@@ -117,3 +117,31 @@ ratings = [2842,2584,5156,2484,7484]
 print(dict(zip(names,ratings)))
 #zip_longest позволяет сохранить лишнее значение с None
 print(dict(it.zip_longest(names,ratings)))
+
+#groupby сортирует в вид key:[value,value,value], учитывает порядок следования эле-тов
+for key, grp in it.groupby([1,1,1,2,2,2,3,3]):
+    print('{}:{}'.format(key,list(grp)))
+#обязательно передавать сгруппированный список, иначе работет не правильно
+for key, grp in it.groupby([1,2,1,3,2,1,3,2]):
+    print('{}:{}'.format(key,list(grp)))
+
+lst = [1,2,1,3,2,1,3,2]
+for key, grp in it.groupby(sorted(lst)):
+    print('{}:{}'.format(key,list(grp)))
+#groupby к словарям
+forecast = [{'humidity' : 20, 'temperature' : 78, 'wind' : 7},
+            {'humidity' : 50, 'temperature' : 61, 'wind' : 10},
+            {'humidity' : 100, 'temperature' : 81, 'wind' : 5},
+            {'humidity' : 90, 'temperature' : 62, 'wind' : 15},
+            {'humidity' : 20, 'temperature' : 84, 'wind' : 19},
+            {'humidity' : 0, 'temperature' : 66, 'wind' : 28},
+            {'humidity' : 100, 'temperature' : 87, 'wind' : 12},
+            {'humidity' : 0, 'temperature' : 68, 'wind' : 14},
+            {'humidity' : 90, 'temperature' : 86, 'wind' : 4},
+            {'humidity' : 50, 'temperature' : 68, 'wind' : 0}
+            ]
+def group_sorted (iterable, key=None):
+    return it.groupby(sorted(iterable, key = key), key = key)
+grouped_data = group_sorted(forecast, key=lambda x: x['humidity'])
+for key, grp in grouped_data:
+    print('{}:{}'.format(key, list(grp)))
