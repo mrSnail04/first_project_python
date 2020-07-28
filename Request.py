@@ -44,4 +44,4 @@ with requests.Session() as session:
     except ConnectionError as err:
         print(f'Failed to connect: {err}')
     else:
-        print('ok')
+        print('Ok')
