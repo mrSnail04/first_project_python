@@ -14,8 +14,8 @@ for url in ['https://www.engineerspock.com/', 'https://www.engineerspock.com/djh
     else:
         print('Connected Successfully')
     
-#response = requests.get('https://www.engineerspock.com/')
-#print(response.content)
+response = requests.get('https://www.engineerspock.com/')
+print(response.content)
 response = requests.get('https://api.github.com/')
 data = response.json()
 print(data)
