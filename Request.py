@@ -13,7 +13,7 @@ for url in ['https://www.engineerspock.com/', 'https://www.engineerspock.com/djh
         print(f'Unknown error:{err}')
     else:
         print('Connected Successfully')
-    
+
 response = requests.get('https://www.engineerspock.com/')
 print(response.content)
 response = requests.get('https://api.github.com/')
@@ -22,8 +22,8 @@ print(data)
 
 print(response.headers, end='\n')
 
-#from getpass import getpass
-#uth_response = requests.get('https://api.github.com/user', auth=('mrSnail04', getpass()))
+from getpass import getpass
+uth_response = requests.get('https://api.github.com/user', auth=('mrSnail04', getpass()))
 
 #для отработки таймаутов
 from requests.exceptions import Timeout
