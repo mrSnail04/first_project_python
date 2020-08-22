@@ -46,3 +46,19 @@ class Pagination:
         start_index = (self.current_page - 1) * self.page_size
         finish_index = start_index + self.page_size
         return self.items[start_index:finish_index]
+
+    def print_items(self):
+        print(self.get_visible_items())
+
+
+alphabetList = list('abcdefghijklmnopqrstuvwxyz')
+p = Pagination(alphabetList)
+p.print_items()
+p.next_page()
+p.print_items()
+p.last_page()
+p.print_items()
+p.first_page()
+p.print_items()
+p.go_to_page(3)
+p.print_items()
