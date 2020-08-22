@@ -11,7 +11,7 @@ class IceCream:
             'Vanilla': 5,
             'ChocolateChip': 5,
             'Strawberry': 10,
-            'Chocolate': 100
+            'Chocolate': 10
         }
         print(max([icecream.sprinkles + flavor_value[icecream.flavor] for icecream in lst]))
 ice1 = IceCream('ice1', 'Chocolate', 13)
