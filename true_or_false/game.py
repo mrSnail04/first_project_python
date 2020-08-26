@@ -4,7 +4,6 @@ from true_or_false.game_result import GameResult
 from true_or_false.game_status import GameStatus
 from true_or_false.question import Question
 
-
 class Game:
     def __init__(self, file_path: str, allowed_mistakes: int, end_of_game_event: Callable):
         self.__file_path = file_path
@@ -34,7 +33,6 @@ class Game:
             result = GameResult(self.__counter, self.__mistakes, self.__mistakes <= self.__allowed_mistakes)
             self.__end_of_game_event(result)
         self.__counter += 1
-
 
     @property
     def game_status(self):
