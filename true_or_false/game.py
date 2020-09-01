@@ -4,6 +4,7 @@ from true_or_false.game_result import GameResult
 from true_or_false.game_status import GameStatus
 from true_or_false.question import Question
 
+
 class Game:
     def __init__(self, file_path: str, allowed_mistakes: int, end_of_game_event: Callable):
         self.__file_path = file_path
