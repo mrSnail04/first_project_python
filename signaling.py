@@ -68,15 +68,15 @@ class BankTerminal:
 
     def on_message_received(self, status):
         print(f'Signaling for event: {status}')
-        self.operation_signal.set()
+        self.operation_signal.set() #Установка флага на ожидание события
 
     def purchase(self, amount):
         def process_purchase():
             purchase_op_code = 1
             self.protocol.send(purchase_op_code, amount)
-            self.operation_signal.clear()
+            self.operation_signal.clear() #снятие флага, если он установлен
             print('\nWaiting for signal')
-            self.operation_signal.wait()
+            self.operation_signal.wait() #ожидание флага. Если флага нет, то он блокирует.
             print('Purchase finished')
 
         t = threading.Thread(target=process_purchase)
