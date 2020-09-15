@@ -1,3 +1,4 @@
+# https://python-scripts.com/synchronization-between-threads ссылка про синхронизацию потоков в python
 import threading
 import time
 
