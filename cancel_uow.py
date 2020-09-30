@@ -20,15 +20,11 @@ class ThreeSumUnitOfWork(StoppableThread):
     def __init__(self, ints, name='TestThread'):
         super().__init__(name=name)
         self.ints = ints
-        # self.stop_event = threading.Event()
 
     def run(self):
         print(f'{self.getName()} starts')
         self.count_three_sum(self.ints)
         print(f'{self.getName()} ends')
-
-    #    def stop(self):
-    #       self.stop_event.set()
 
     def count_three_sum(self, ints):
         print("started count_three_sum")
