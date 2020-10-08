@@ -16,10 +16,11 @@ def div(divisor, limit):
     raise Exception('bad things happen!')
     return
 
+
 if __name__ == '__main__':
     print('started main')
-    with concurrent.futures.ThreadPoolExecutor(max_workers = 2) as executor:
-        res_list = executor.map(div, (3,5), (15,25))
+    with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
+        res_list = executor.map(div, (3, 5), (15, 25))
         while res_list:
             try:
                 cur_res = next(res_list)
