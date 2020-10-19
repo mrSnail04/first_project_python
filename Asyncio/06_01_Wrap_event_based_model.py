@@ -1,6 +1,7 @@
 import asyncio
 import threading
 import time
+# конвертация патерна thread в патерн async await
 
 
 class Terminal:
