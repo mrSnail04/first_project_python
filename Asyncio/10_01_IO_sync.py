@@ -1,6 +1,6 @@
 import requests
 
-from multithreding.decorators import measure_time
+from ..multithreding.decorators import measure_time
 
 
 def download_site(url, session):
